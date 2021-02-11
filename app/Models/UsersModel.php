@@ -12,6 +12,8 @@ class UsersModel extends Model
 
     public function addUser($userdata=array()){
         $builder = $this->db->table($this->_table);
-        return $builder->insert($userdata);
+        $builder->insert($userdata);
+        $error=$this->db->error();
+        return $error['code'];
     }
 }

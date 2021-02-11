@@ -23,7 +23,7 @@ class App extends BaseConfig
 	 *
 	 * @var string
 	 */
-	public $baseURL = 'http://web.bncc.ac.th/site/kinoppol/ci/public/';
+	public $baseURL = 'http://localhost/ci/public/';
 
 	/**
 	 * --------------------------------------------------------------------------

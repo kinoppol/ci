@@ -11,15 +11,22 @@ class Noppol extends BaseController
  
         return view('menu').view('noppol');
     }
+    public function register_form(){
+        return view('register_form');
+    }
     public function register(){
         $register = new UsersModel();
         $userData=array(
-            'username'=>$_GET['username'],
-            'password'=>md5(trim($_GET['password'])),
-            'email'=>$_GET['email'],
+            'username'=>$_POST['username'],
+            'password'=>md5(trim($_POST['password'])),
+            'email'=>$_POST['email'],
 
         );
-        return $register->addUser($userData);
+        if($register->addUser($userData)==0){
+            return "ลงทะเบียนสำเร็จ"; 
+        }else{
+            return "ลงทะเบียนล้มเหลว";
+        }
     }
     public function education(){
         return view('menu').view('noppol_edu');
